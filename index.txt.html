@@ -1,116 +1,17 @@
-<!DOCTYPE html>
-<html> 
-
-<head> 
-
-<title>::: 노글스 :::</title> 
-
-</head> 
-
-<body> 
-
-<input type=button onClick=chk() value="chk"> 
-
-결과 
-
- 
-
-<script> 
-
-var sHttp = new ActiveXObject("Microsoft.xmlhttp"); 
-
- 
-
-function httpGet(szURL) { 
-
-  sHttp.open("get",szURL,false); 
-
-  sHttp.setRequestHeader( "Content-type:", "application/x-www-form-urlencoded"); 
-
-sHttp.setRequestHeader("Content-Encoding:", "euc-kr"); 
-
- 
-
- 
-
-  sHttp.onreadystatechange = onRetriveComplete; 
-
-  try{ 
-
-  sHttp.send("code=tnt2"); 
-
-  } 
-
-  catch(e) { 
-
-      return ("Not exist"); 
-
-  } 
-
- 
-
-  if (sHttp.status > 200) { 
-
-  return("not exist<br>"); 
-
-  } else 
-
- 
-
- 
-
-  return(sHttp.responseText); 
-
- 
-
-} 
-
- 
-
-function onRetriveComplete() { 
-
-  sHttp.onreadystatechange = noop; //re-entrant gate 
-
-  if (sHttp.readyState == 4) { 
-
-  } 
-
-} 
-
- 
-
-function noop() { 
-
-  return false; 
-
-} 
-
- 
-
-function chk() { 
-
- 
-
-  getData=httpGet("http://www.phpschool.com/bbs2/inc_board.html"); 
-
- 
-
-  document.noglsForm.test.value=getData; 
-
- 
-
-} 
-
-</script> 
-
- 
-
-<form name=noglsForm> 
-
-<textarea name=test rows=200 cols=200></textarea> 
-
-</form> 
-
-</body> 
-
-</html> 
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Button Test</title>
+<script language="javascript" type="text/javascript" src="js/prototype.js"></script>
+<script language="javascript" type="text/javascript" src="js/other.js"></script>
+</head>
+<body>
+ <form id="imgform" name="imgform">
+  <input id="url" name="url" type="text" value="http://www.kma.go.kr/weather_main.jsp" />
+  <image src="originalfile.jpg" id="submitImg" name="submitImg"/>
+ </form>
+ <div id="result"></div>
+</body>
+</html>
