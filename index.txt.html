@@ -1,53 +1,116 @@
 <!DOCTYPE html>
+<html> 
 
-<html>
+<head> 
 
-<head>
+<title>::: 노글스 :::</title> 
 
-<script type="text/javascript">
+</head> 
 
-function download() {
+<body> 
 
-	var str_url = $('#input_url').val();
+<input type=button onClick=chk() value="chk"> 
 
-	$.ajax( {
+결과 
 
-		url:str_url,
+ 
 
-		success:function(data) {
+<script> 
 
-			$('#textvw').val(data);	
+var sHttp = new ActiveXObject("Microsoft.xmlhttp"); 
 
-		}
+ 
 
-	} );
+function httpGet(szURL) { 
 
-}
+  sHttp.open("get",szURL,false); 
 
-$(document).ready(function() {
+  sHttp.setRequestHeader( "Content-type:", "application/x-www-form-urlencoded"); 
 
-	$('button').click(function() {
+sHttp.setRequestHeader("Content-Encoding:", "euc-kr"); 
 
-		download();
+ 
 
-	} )
+ 
 
-} );
+  sHttp.onreadystatechange = onRetriveComplete; 
 
-</script>
+  try{ 
 
+  sHttp.send("code=tnt2"); 
 
+  } 
 
-</head>
+  catch(e) { 
 
-<body>
+      return ("Not exist"); 
 
+  } 
 
-<input id='input_url' value='http://apis.data.go.kr/B090041/openapi/service/LunPhInfoService/getLunPhInfo?solYear=2018&solMonth=04&solDay=10&serviceKey=WjughaThdULfdkECwUvSg3aMD0iR1nDXxzk2DUSTi4Gqj%2FtaV5GPsoHLVInvNg5ZdUZx0awqPAoVinLy%2B5xcjA%3D%3D'>
+ 
 
-<button>download ajax</button><br><br>
+  if (sHttp.status > 200) { 
 
+  return("not exist<br>"); 
 
-<textarea id='textvw' rows="" cols="" style='height:200px; width:320px;'></textarea>
-</body>
-</html>
+  } else 
+
+ 
+
+ 
+
+  return(sHttp.responseText); 
+
+ 
+
+} 
+
+ 
+
+function onRetriveComplete() { 
+
+  sHttp.onreadystatechange = noop; //re-entrant gate 
+
+  if (sHttp.readyState == 4) { 
+
+  } 
+
+} 
+
+ 
+
+function noop() { 
+
+  return false; 
+
+} 
+
+ 
+
+function chk() { 
+
+ 
+
+  getData=httpGet("http://www.phpschool.com/bbs2/inc_board.html"); 
+
+ 
+
+  document.noglsForm.test.value=getData; 
+
+ 
+
+} 
+
+</script> 
+
+ 
+
+<form name=noglsForm> 
+
+<textarea name=test rows=200 cols=200></textarea> 
+
+</form> 
+
+</body> 
+
+</html> 
