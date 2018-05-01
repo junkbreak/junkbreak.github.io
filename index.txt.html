@@ -4,8 +4,22 @@
 		<title>Result</title>
 	</head>
 	<body><h1>LH</h1>
-	
+	<%
+
+' CrossDomain Page Get Html 
+ Function getHTML(ByVal strUrl)
+    Set xmlHttp = Server.Createobject("MSXML2.ServerXMLHTTP")  
+  xmlHttp.Open "GET", strUrl, False
+  xmlHttp.setRequestHeader "User-Agent", "asp httprequest"
+  xmlHttp.setRequestHeader "content-type", "application/x-www-form-urlencoded"
+  xmlHttp.Send
+  getHTML = xmlHttp.ResponseText
+  xmlHttp.abort()
+  set xmlHttp = Nothing
+ End Function
+
+%>
 		<p>Moon Start</p>
-<div><%=getHTML("http://apis.data.go.kr/B090041/openapi/service/LunPhInfoService/getLunPhInfo?solYear=2018&solMonth=04&solDay=10&serviceKey=WjughaThdULfdkECwUvSg3aMD0iR1nDXxzk2DUSTi4Gqj%2FtaV5GPsoHLVInvNg5ZdUZx0awqPAoVinLy%2B5xcjA%3D%3D ")%></div>
+<div><%=getHTML("http://apis.data.go.kr/B090041/openapi/service/LunPhInfoService/getLunPhInfo?solYear=2018&solMonth=04&solDay=10&serviceKey=WjughaThdULfdkECwUvSg3aMD0iR1nDXxzk2DUSTi4Gqj%2FtaV5GPsoHLVInvNg5ZdUZx0awqPAoVinLy%2B5xcjA%3D%3D")%></div>
 	</body>
 </html>
