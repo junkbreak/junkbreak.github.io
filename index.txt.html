@@ -1,43 +1,19 @@
+
+<!DOCTYPE html>
+
 <html>
+
 <head>
 
-  <link rel="import" href="http://apis.data.go.kr/B090041/openapi/service/LunPhInfoService/getLunPhInfo?solYear=2018&solMonth=04&solDay=10&serviceKey=WjughaThdULfdkECwUvSg3aMD0iR1nDXxzk2DUSTi4Gqj%2FtaV5GPsoHLVInvNg5ZdUZx0awqPAoVinLy%2B5xcjA%3D%3D">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
-<!-- 
+<script>
 
-head에 link의 import를 사용하면 된다.
+$(document).ready(function(){
 
-근데 link에서 import가 지원 안되면 사용 못한다. ㅜㅜ
+    $("#div1").load("import" href="http://apis.data.go.kr/B090041/openapi/service/LunPhInfoService/getLunPhInfo?solYear=2018&solMonth=04&solDay=10&serviceKey=WjughaThdULfdkECwUvSg3aMD0iR1nDXxzk2DUSTi4Gqj%2FtaV5GPsoHLVInvNg5ZdUZx0awqPAoVinLy%2B5xcjA%3D%3D");
 
-브라우저에서 지원해 주는지 테스트는 어떻게 하냐면~ 
-
- 'import' in document.createElement('link'); 해 보면 된다.
-
-지원 되면 true 안되면 false 가 나온다.
-
--->
-
-<script type="text/javascript">
-
-function checkSupportsImport() {
-
-	console.log( 'import' in document.createElement('link') );
-
-	return 'import' in document.createElement('link');
-
-}
-
-if ( checkSupportsImport() ){
-
-//지원되면 여기에 코딩
-
-//import한 내용을 id="contents" 에 넣는 작업 하면된다.
-
-}else{
-
-//안되면 오류 처리를 여기 코딩
-
-}
+});
 
 </script>
 
@@ -45,15 +21,15 @@ if ( checkSupportsImport() ){
 
 <body>
 
-<div id="header">이부분은 헤더</div>
 
-<div id="contents">
 
-<!-- 여기는 다른 html파일을 넣자 -->
+<div id="div1" style="border: solid;width:400px; height:400px; "></div>
 
-</div>
+//div안에 페이지 불러옴.
 
-<div id="footer">이부분은 푸터</div>
+
+
+
 
 </body>
 
