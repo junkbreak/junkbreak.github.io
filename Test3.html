@@ -1,0 +1,45 @@
+<script type="text/javascript">
+
+function download() {
+
+	var str_url = $('#input_url').val();
+
+	$.ajax( {
+
+		url:str_url,
+
+		success:function(data) {
+
+			$('#textvw').val(data);	
+
+		}
+
+	} );
+
+}
+
+$(document).ready(function() {
+
+	$('button').click(function() {
+
+		download();
+
+	} )
+
+} );
+
+</script>
+
+
+
+</head>
+
+<body>
+
+
+<input id='input_url' value='http://m.naver.com'>
+
+<button>download ajax</button><br><br>
+
+
+<textarea id='textvw' rows="" cols="" style='height:200px; width:320px;'></textarea>
