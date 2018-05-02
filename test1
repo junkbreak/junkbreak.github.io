@@ -2,7 +2,7 @@ function loadURL()
 {
  var url = document.all.url;
  if(url.value == "") {
-  alert("url 을 입력해야합니다.");
+  alert("www.naver.com");
   url.focus();
   return;
  }
